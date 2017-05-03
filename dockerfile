@@ -1,4 +1,4 @@
-# bzflag docker image
+# bzflag server docker image
 FROM ubuntu
 
 MAINTAINER Rich Bocchinfuso <rbocchinfuso@gmail.com>
