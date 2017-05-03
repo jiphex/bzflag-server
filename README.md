@@ -1,6 +1,6 @@
 # BZFlag Server Dockerfile
 
-A late night project that was spawed from a nostalgic memory.  Old is made new with this containerized BZFlag server. :)
+This Docker BZFlag server image spawned from nostalgia and free time during a late night project.  Old is made new with this containerized BZFlag server. :)
 
 ## Prerequisites
 - [Docker](https://www.docker.com/)
