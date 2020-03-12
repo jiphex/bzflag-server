@@ -23,12 +23,26 @@ spec:
       labels:
         app: bzflag-server
     spec:
+      volumes:
+        - name: bzflag-config
+          configMap:
+            name: bzflag-config
       containers:
         - image: quay.io/jiphex/bzflag-server:latest
           imagePullPolicy: Always
           name: bzflag-server
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
+          resources:
+            limits:
+              memory: 256Mi
+              cpu: 100m
+          volumeMounts:
+            - name: bzflag-config
+              mountPath: /etc/bzflag
+          args:
+            - -conf
+            - /etc/bzflag/server.conf
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler

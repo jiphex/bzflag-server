@@ -9,4 +9,5 @@ ADD ./bzflag-server.conf /usr/local/etc
 
 EXPOSE 5154
 
-ENTRYPOINT ["/usr/games/bzfs","-conf","/usr/local/etc/bzflag-server.conf"]
+ENTRYPOINT ["/usr/games/bzfs"]
+CMD ["-conf","/usr/local/etc/bzflag-server.conf"]

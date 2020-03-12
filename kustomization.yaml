@@ -1,3 +1,7 @@
 resources:
   - kubernetes/deployment.yaml
   - kubernetes/service.yaml
+configMapGenerator:
+  - name: bzflag-config
+    files:
+      - configs/server.conf
