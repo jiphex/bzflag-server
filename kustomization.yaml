@@ -1,7 +1,11 @@
-resources:
-  - kubernetes/deployment.yaml
-  - kubernetes/service.yaml
+# kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+namespace: games
+kind: Kustomization
 configMapGenerator:
-  - name: bzflag-config
-    files:
-      - configs/server.conf
+- name: bzflag-server-config
+  files:
+  - config/server.conf
+resources:
+- k8s/deployment.yaml
+- k8s/service.yaml
