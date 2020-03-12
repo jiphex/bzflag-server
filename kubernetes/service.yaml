@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: games
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "true"
+  name: bzflagt
+spec:
+  selector:
+    app: bzflag-server
+  type: LoadBalancer
+  loadBalancerIP: 130.246.6.242
+  ports:
+    - port: 5154
+      name: bztcp
+      protocol: TCP
+      targetPort: 5154
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "true"
+  namespace: games
+  name: bzflagu
+spec:
+  selector:
+    app: bzflag-server
+  type: LoadBalancer
+  loadBalancerIP: 130.246.6.242
+  ports:
+    - port: 5154
+      protocol: UDP
+      name: bzudp
+      targetPort: 5154
